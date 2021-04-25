@@ -1,0 +1,12 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: evan
+    password: hc123456
+    virtual-host: /evan
+    publisher-returns: true
+    publisher-confirm-type: simple
+    listener:
+      direct:
+        acknowledge-mode: manual

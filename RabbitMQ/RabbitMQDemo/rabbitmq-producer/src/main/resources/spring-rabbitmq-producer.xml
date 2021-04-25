@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <context:property-placeholder location="classpath:rabbitmq.properties"/>
+    <rabbit:connection-factory id="connectionFactory"
+                               host="${rabbitmq.host}"
+                               port="${rabbitmq.port}"
+                               username="${rabbitmq.username}"
+                               password="${rabbitmq.password}"
+                               virtual-host="${rabbitmq.virtual-host}"
+                               confirm-type="SIMPLE"
+                               publisher-returns="true"/>
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <rabbit:queue id="spring_queue" name="spring_queue" auto-declare="true"/>
+
+    <rabbit:queue id="spring_fanout_queue_1" name="spring_fanout_queue_1" auto-declare="true"/>
+    <rabbit:queue id="spring_fanout_queue_2" name="spring_fanout_queue_2" auto-declare="true"/>
+    <rabbit:fanout-exchange name="spring_fanout_exchange" id="spring_fanout_exchange" auto-declare="true">
+        <rabbit:bindings>
+            <rabbit:binding queue="spring_fanout_queue_1"/>
+            <rabbit:binding queue="spring_fanout_queue_2"/>
+        </rabbit:bindings>
+    </rabbit:fanout-exchange>
+
+    <rabbit:queue id="spring_direct_queue_1" name="spring_direct_queue_1" auto-declare="true">
+
+    </rabbit:queue>
+    <rabbit:direct-exchange name="spring_direct_exchange" id="spring_direct_exchange" auto-declare="true">
+        <rabbit:bindings>
+            <rabbit:binding queue="spring_direct_queue_1" key="info"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <rabbit:queue id="spring_topic_queue_1" name="spring_topic_queue_1" auto-declare="true"/>
+    <rabbit:queue id="spring_topic_queue_2" name="spring_topic_queue_2" auto-declare="true"/>
+    <rabbit:queue id="spring_topic_queue_3" name="spring_topic_queue_3" auto-declare="true"/>
+    <rabbit:topic-exchange name="spring_topic_exchange" id="spring_topic_exchange" auto-declare="true">
+        <rabbit:bindings>
+            <rabbit:binding pattern="evan.*" queue="spring_topic_queue_1"/>
+            <rabbit:binding pattern="evan.#" queue="spring_topic_queue_2"/>
+            <rabbit:binding pattern="it.#" queue="spring_topic_queue_3"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+    <rabbit:queue id="test_queue_ttl" name="test_queue_ttl" auto-declare="true" >
+        <rabbit:queue-arguments>
+            <entry key="x-message-ttl" value="10000" value-type="java.lang.Integer"/>
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+    <rabbit:topic-exchange name="test_exchange_ttl" id="test_exchange_ttl" auto-declare="true">
+        <rabbit:bindings>
+            <rabbit:binding pattern="ttl.#" queue="test_queue_ttl"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+
+
+    <rabbit:queue name="test_queue_dlx" id="test_queue_dlx">
+        <rabbit:queue-arguments>
+            <entry key="x-dead-letter-exchange" value="exchange_dlx"/>
+            <entry key="x-dead-letter-routing-key" value="dlx.hh"/>
+
+            <entry key="x-message-ttl" value="3600000" value-type="java.lang.Integer"/>
+            <entry key="x-max-length" value="10" value-type="java.lang.Integer"/>
+
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+    <rabbit:topic-exchange name="test_exchange_dlx" id="test_exchange_dlx">
+        <rabbit:bindings>
+            <rabbit:binding pattern="test_dlx.#" queue="test_queue_dlx"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+    <rabbit:queue name="queue_dlx" id="queue_dlx"></rabbit:queue>
+    <rabbit:topic-exchange name="exchange_dlx" id="exchange_dlx">
+        <rabbit:bindings>
+            <rabbit:binding pattern="dlx.#" queue="queue_dlx"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+
+    <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory"/>
+
+
+
+
+</beans>

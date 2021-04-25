@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!--    <script src="https://unpkg.com/vue/dist/vue.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div id="app">
+<!--        <el-container>-->
+<!--            <el-header>Header</el-header>-->
+<!--            <el-main>Main</el-main>-->
+<!--        </el-container>-->
+
+<!--        <el-container>-->
+<!--            <el-header>Header</el-header>-->
+<!--            <el-main>Main</el-main>-->
+<!--            <el-footer>Footer</el-footer>-->
+<!--        </el-container>-->
+
+<!--        <el-container>-->
+<!--            <el-aside width="200px">Aside</el-aside>-->
+<!--            <el-main>Main</el-main>-->
+<!--        </el-container>-->
+
+<!--        <el-container>-->
+<!--            <el-header>Header</el-header>-->
+<!--            <el-container>-->
+<!--                <el-aside width="200px">Aside</el-aside>-->
+<!--                <el-main>Main</el-main>-->
+<!--            </el-container>-->
+<!--        </el-container>-->
+
+<!--        <el-container>-->
+<!--            <el-header>Header</el-header>-->
+<!--            <el-container>-->
+<!--                <el-aside width="200px">Aside</el-aside>-->
+<!--                <el-container>-->
+<!--                    <el-main>Main</el-main>-->
+<!--                    <el-footer>Footer</el-footer>-->
+<!--                </el-container>-->
+<!--            </el-container>-->
+<!--        </el-container>-->
+
+<!--        <el-container>-->
+<!--            <el-aside width="200px">Aside</el-aside>-->
+<!--            <el-container>-->
+<!--                <el-header>Header</el-header>-->
+<!--                <el-main>Main</el-main>-->
+<!--            </el-container>-->
+<!--        </el-container>-->
+
+<!--        <el-container>-->
+<!--            <el-aside width="200px">Aside</el-aside>-->
+<!--            <el-container>-->
+<!--                <el-header>Header</el-header>-->
+<!--                <el-main>Main</el-main>-->
+<!--                <el-dropdown split-button type="primary">-->
+<!--                    默认尺寸-->
+<!--                    <el-dropdown-menu slot="dropdown">-->
+<!--                        <el-dropdown-item>黄金糕</el-dropdown-item>-->
+<!--                        <el-dropdown-item>狮子头</el-dropdown-item>-->
+<!--                        <el-dropdown-item>螺蛳粉</el-dropdown-item>-->
+<!--                        <el-dropdown-item>双皮奶</el-dropdown-item>-->
+<!--                        <el-dropdown-item>蚵仔煎</el-dropdown-item>-->
+<!--                    </el-dropdown-menu>-->
+<!--                </el-dropdown>-->
+
+<!--                <el-dropdown size="medium" split-button type="primary">-->
+<!--                    中等尺寸-->
+<!--                    <el-dropdown-menu slot="dropdown">-->
+<!--                        <el-dropdown-item>黄金糕</el-dropdown-item>-->
+<!--                        <el-dropdown-item>狮子头</el-dropdown-item>-->
+<!--                        <el-dropdown-item>螺蛳粉</el-dropdown-item>-->
+<!--                        <el-dropdown-item>双皮奶</el-dropdown-item>-->
+<!--                        <el-dropdown-item>蚵仔煎</el-dropdown-item>-->
+<!--                    </el-dropdown-menu>-->
+<!--                </el-dropdown>-->
+
+<!--                <el-dropdown size="small" split-button type="primary">-->
+<!--                    小型尺寸-->
+<!--                    <el-dropdown-menu slot="dropdown">-->
+<!--                        <el-dropdown-item>黄金糕</el-dropdown-item>-->
+<!--                        <el-dropdown-item>狮子头</el-dropdown-item>-->
+<!--                        <el-dropdown-item>螺蛳粉</el-dropdown-item>-->
+<!--                        <el-dropdown-item>双皮奶</el-dropdown-item>-->
+<!--                        <el-dropdown-item>蚵仔煎</el-dropdown-item>-->
+<!--                    </el-dropdown-menu>-->
+<!--                </el-dropdown>-->
+
+<!--                <el-dropdown size="mini" split-button type="primary">-->
+<!--                    超小尺寸-->
+<!--                    <el-dropdown-menu slot="dropdown">-->
+<!--                        <el-dropdown-item>黄金糕</el-dropdown-item>-->
+<!--                        <el-dropdown-item>狮子头</el-dropdown-item>-->
+<!--                        <el-dropdown-item>螺蛳粉</el-dropdown-item>-->
+<!--                        <el-dropdown-item>双皮奶</el-dropdown-item>-->
+<!--                        <el-dropdown-item>蚵仔煎</el-dropdown-item>-->
+<!--                    </el-dropdown-menu>-->
+<!--                </el-dropdown>-->
+<!--                <el-footer>Footer</el-footer>-->
+<!--            </el-container>-->
+<!--        </el-container>-->
+<!--        <el-pagination-->
+<!--                :page-size="20"-->
+<!--                :pager-count="11"-->
+<!--                layout="prev, pager, next"-->
+<!--                :total="1000">-->
+<!--        </el-pagination>-->
+
+<!--        <template>-->
+<!--            <div class="block">-->
+<!--                <span class="demonstration">显示总数</span>-->
+<!--                <el-pagination-->
+<!--                        @size-change="handleSizeChange"-->
+<!--                        @current-change="handleCurrentChange"-->
+<!--                        :current-page.sync="currentPage1"-->
+<!--                        :page-size="100"-->
+<!--                        layout="total, prev, pager, next"-->
+<!--                        :total="1000">-->
+<!--                </el-pagination>-->
+<!--            </div>-->
+<!--            <div class="block">-->
+<!--                <span class="demonstration">调整每页显示条数</span>-->
+<!--                <el-pagination-->
+<!--                        @size-change="handleSizeChange"-->
+<!--                        @current-change="handleCurrentChange"-->
+<!--                        :current-page.sync="currentPage2"-->
+<!--                        :page-sizes="[100, 200, 300, 400]"-->
+<!--                        :page-size="100"-->
+<!--                        layout="sizes, prev, pager, next"-->
+<!--                        :total="1000">-->
+<!--                </el-pagination>-->
+<!--            </div>-->
+<!--            <div class="block">-->
+<!--                <span class="demonstration">直接前往</span>-->
+<!--                <el-pagination-->
+<!--                        @size-change="handleSizeChange"-->
+<!--                        @current-change="handleCurrentChange"-->
+<!--                        :current-page.sync="currentPage3"-->
+<!--                        :page-size="100"-->
+<!--                        layout="prev, pager, next, jumper"-->
+<!--                        :total="1000">-->
+<!--                </el-pagination>-->
+<!--            </div>-->
+<!--            <div class="block">-->
+<!--                <span class="demonstration">完整功能</span>-->
+<!--                <el-pagination-->
+<!--                        @size-change="handleSizeChange"-->
+<!--                        @current-change="handleCurrentChange"-->
+<!--                        :current-page="currentPage4"-->
+<!--                        :page-sizes="[100, 200, 300, 400]"-->
+<!--                        :page-size="100"-->
+<!--                        layout="total, sizes, prev, pager, next, jumper"-->
+<!--                        :total="400">-->
+<!--                </el-pagination>-->
+<!--            </div>-->
+<!--        </template>-->
+<!--        <script>-->
+<!--            export default {-->
+<!--                methods: {-->
+<!--                    handleSizeChange(val) {-->
+<!--                        console.log(`每页 ${val} 条`);-->
+<!--                    },-->
+<!--                    handleCurrentChange(val) {-->
+<!--                        console.assert(`当前页：${val}`);-->
+<!--                        console.log(`当前页: ${val}`);-->
+<!--                    }-->
+<!--                },-->
+<!--                data() {-->
+<!--                    return {-->
+<!--                        currentPage1: 5,-->
+<!--                        currentPage2: 5,-->
+<!--                        currentPage3: 5,-->
+<!--                        currentPage4: 4-->
+<!--                    };-->
+<!--                }-->
+<!--            }-->
+<!--        </script>-->
+
+
+        <template>
+            <el-button :plain="true" @click="open">打开消息提示</el-button>
+            <el-button :plain="true" @click="openVn">VNode</el-button>
+        </template>
+
+        <script>
+            export default {
+                methods: {
+                    open() {
+                        this.$message('这是一条消息提示');
+                    },
+
+                    openVn() {
+                        const h = this.$createElement;
+                        this.$message({
+                            message: h('p', null, [
+                                h('span', null, '内容可以是 '),
+                                h('i', { style: 'color: teal' }, 'VNode')
+                            ])
+                        });
+                    }
+                }
+            }
+        </script>
+        <template>
+            <el-button :plain="true" @click="open2">成功</el-button>
+            <el-button :plain="true" @click="open3">警告</el-button>
+            <el-button :plain="true" @click="open1">消息</el-button>
+            <el-button :plain="true" @click="open4">错误</el-button>
+        </template>
+
+        <script>
+            export default {
+                methods: {
+                    open1() {
+                        this.$message('这是一条消息提示');
+                    },
+                    open2() {
+                        this.$message({
+                            message: '恭喜你，这是一条成功消息',
+                            type: 'success'
+                        });
+                    },
+
+                    open3() {
+                        this.$message({
+                            message: '警告哦，这是一条警告消息',
+                            type: 'warning'
+                        });
+                    },
+
+                    open4() {
+                        this.$message.error('错了哦，这是一条错误消息');
+                    }
+                }
+            }
+        </script>
+
+    </div>
+    <style>
+        .el-header, .el-footer {
+            background-color: #B3C0D1;
+            color: #333;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .el-aside {
+            background-color: #D3DCE6;
+            color: #333;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .el-main {
+            background-color: #E9EEF3;
+            color: #333;
+            text-align: center;
+            line-height: 160px;
+        }
+
+        body > .el-container {
+            margin-bottom: 40px;
+        }
+
+        .el-container:nth-child(5) .el-aside,
+        .el-container:nth-child(6) .el-aside {
+            line-height: 260px;
+        }
+
+        .el-container:nth-child(7) .el-aside {
+            line-height: 320px;
+        }
+    </style>
+
+    <script>
+        new Vue({
+            el: '#app'
+        });
+    </script>
+
+</body>
+</html>

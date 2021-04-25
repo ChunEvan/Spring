@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <input type="text" v-model="num">
+  <button  v-on:click="num++">点我</button>
+  <button  @click="decrement">点我</button>
+  <h2>
+    {{name}}非常酷！
+    有{{num}} 个银行
+  </h2>
+
+  v-text:<span v-text="name"></span><br>
+  v-html:<span v-html="name"></span><br>
+
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: "#app",
+    data: {
+      name: "<h2>evan</h2>",
+      num: 1
+    },
+    methods:{
+      decrement(){
+        this.num--;
+      }
+    }
+    // created() {
+    //   this.name="hhhhh";
+    //   console.log(this);
+    // }
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+logging:
+  level:
+    com.example.demo: debug
+    org.springframework: info
+
+spring:
+  datasource:
+    username: root
+    password: hc123456
+    url: jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+  mail:
+    username: huangchunyx@163.com
+    password: hc123457034
+    host: smtp.163.com
+
+mybatis:
+  type-aliases-package: com.example.demo.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mybatis/mapper/*.xml

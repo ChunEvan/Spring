@@ -1,0 +1,24 @@
+server:
+  port: 8002
+
+
+feign:
+  hystrix:
+    enabled: true
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka/
+  instance:
+    instance-id: springcloud-provider-dept8001
+    prefer-ip-address: true
+
+
+zuul:
+  routes:
+    mydept.serverId: srpingcloud-provider-dept
+    mydept.path: /mydept/*
+  ignored-services: srpingcloud-provider-dept
+  prefix: /evan

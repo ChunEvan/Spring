@@ -1,0 +1,40 @@
+# 配置tomcat端口号
+server:
+  port: ${port:9091}
+
+# 配置数据源
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springcloud
+    username: root
+    password: hc123456
+  application:
+    name: user-service
+
+
+# 配置mybatis
+mybatis:
+  # 配置类型别名包扫描
+  type-aliases-package: com.example.user.pojo
+  # 配置sql语句映射文件路径
+  mapper-locations:
+    - classpath:mybatis/mappers/*.xml
+  # 驼峰映射
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 配置日志
+logging:
+  level:
+    com.xxx: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:10086/eureka
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
